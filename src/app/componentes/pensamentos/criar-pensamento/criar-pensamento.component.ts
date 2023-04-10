@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PensamentoService } from '../pensamento.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { lowercaseValidator } from '../editar-pensamento/lowercase';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -31,6 +32,7 @@ export class CriarPensamentoComponent implements OnInit {
         '',
         Validators.compose([
           Validators.required,
+          lowercaseValidator,
           Validators.minLength(3)
         ]),
       ],
