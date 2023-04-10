@@ -5,24 +5,22 @@
       pensamento novo
     </h2>
   </header>
-  <form>
+  <form [formGroup]="form">
     <label for="pensamento">Pensamento</label>
     <input
       id="pensamento"
-      name="pensamento"
+      formControlName="conteudo"
       class="input"
       type="textarea"
       placeholder="Digite o pensamento"
-      [(ngModel)]="pensamento.conteudo"
     />
     <label for="autoria">Autoria ou fonte</label>
     <input
       id="autoria"
-      name="autoria"
+      formControlName="autoria"
       class="input"
       type="text"
       placeholder="Digite a autoria ou fonte"
-      [(ngModel)]="pensamento.autoria"
     />
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
@@ -31,9 +29,9 @@
           <input
             id="modelo1"
             value="modelo1"
-            name="modelo-card"
+            formControlName="modelo"
             type="radio"
-            [(ngModel)]="pensamento.modelo"
+    
           />
           <div class="custom-radio">
             <span></span>
@@ -46,9 +44,9 @@
             src="../../../../assets/Imagens_do_curso/modelo1.png"
             alt="Aspas azuis"
           />
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="conteudo">{{ form.get('conteudo')?.value }}</p>
           <p class="autoria">
-            <b> {{ pensamento.autoria }} </b>
+            <b> {{ form.get('autoria')?.value }} </b>
           </p>
         </div>
       </div>
@@ -60,9 +58,9 @@
           <input
             id="modelo2"
             value="modelo2"
-            name="modelo-card"
+            formControlName="modelo"
             type="radio"
-            [(ngModel)]="pensamento.modelo"
+    
           />
           <div class="custom-radio">
             <span></span>
@@ -75,9 +73,9 @@
             src="../../../../assets/Imagens_do_curso/modelo2.png"
             alt="Aspas ciano"
           />
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="conteudo">{{ form.get('conteudo')?.value }}</p>
           <p class="autoria">
-            <b>{{ pensamento.autoria }}</b>
+            <b>{{ form.get('autoria')?.value }}</b>
           </p>
         </div>
       </div>
@@ -89,9 +87,9 @@
           <input
             id="modelo3"
             value="modelo3"
-            name="modelo-card"
+            formControlName="modelo"
             type="radio"
-            [(ngModel)]="pensamento.modelo"
+    
           />
           <div class="custom-radio">
             <span></span>
@@ -104,9 +102,9 @@
             src="../../../../assets/Imagens_do_curso/modelo3.png"
             alt="Aspas ciano clarinho"
           />
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="conteudo">{{ form.get('conteudo')?.value }}</p>
           <p class="autoria">
-            <b>{{ pensamento.autoria }}</b>
+            <b>{{ form.get('autoria')?.value }}</b>
           </p>
         </div>
       </div>
