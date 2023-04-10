@@ -10,6 +10,12 @@
     margin-top: 70px;
     width: 200px;
   }
+
+  .botao__desabilitado {
+    margin: 5px;
+    margin-top: 70px;
+    width: 200px;
+  }
   
   .criar-pensamentos {
     padding: 2rem 0;
@@ -53,6 +59,14 @@
     display: flex;
     gap: 2.5rem;
     flex-wrap: wrap;
+  }
+
+  .mensagem__erro {
+    font-size: 12px;
+    margin-left: 5px;
+    color: red;
+    margin-top: -25px;
+    margin-bottom: 20px;
   }
   
   .modelos {

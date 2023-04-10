@@ -14,6 +14,13 @@
       type="textarea"
       placeholder="Digite o pensamento"
     />
+    <div
+      class="mensagem__erro"
+      *ngIf="form.get('conteudo')?.errors && form.get('conteudo')?.touched"
+    >
+      Campo Pensamento vazio
+    </div>
+
     <label for="autoria">Autoria ou fonte</label>
     <input
       id="autoria"
@@ -22,6 +29,19 @@
       type="text"
       placeholder="Digite a autoria ou fonte"
     />
+    <div
+      class="mensagem__erro"
+      *ngIf="form.get('autoria')?.errors?.['required'] && form.get('autoria')?.touched"
+    >
+      Campo Autoria vazio
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="form.get('autoria')?.errors?.['minlength'] && form.get('autoria')?.touched"
+    >
+      Autoria precisa de no mínimo 3 caracteres
+    </div>
+
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
       <div class="radio-modelo">
@@ -31,7 +51,6 @@
             value="modelo1"
             formControlName="modelo"
             type="radio"
-    
           />
           <div class="custom-radio">
             <span></span>
@@ -44,9 +63,9 @@
             src="../../../../assets/Imagens_do_curso/modelo1.png"
             alt="Aspas azuis"
           />
-          <p class="conteudo">{{ form.get('conteudo')?.value }}</p>
+          <p class="conteudo">{{ form.get("conteudo")?.value }}</p>
           <p class="autoria">
-            <b> {{ form.get('autoria')?.value }} </b>
+            <b> {{ form.get("autoria")?.value }} </b>
           </p>
         </div>
       </div>
@@ -60,7 +79,6 @@
             value="modelo2"
             formControlName="modelo"
             type="radio"
-    
           />
           <div class="custom-radio">
             <span></span>
@@ -73,9 +91,9 @@
             src="../../../../assets/Imagens_do_curso/modelo2.png"
             alt="Aspas ciano"
           />
-          <p class="conteudo">{{ form.get('conteudo')?.value }}</p>
+          <p class="conteudo">{{ form.get("conteudo")?.value }}</p>
           <p class="autoria">
-            <b>{{ form.get('autoria')?.value }}</b>
+            <b>{{ form.get("autoria")?.value }}</b>
           </p>
         </div>
       </div>
@@ -89,7 +107,6 @@
             value="modelo3"
             formControlName="modelo"
             type="radio"
-    
           />
           <div class="custom-radio">
             <span></span>
@@ -102,21 +119,24 @@
             src="../../../../assets/Imagens_do_curso/modelo3.png"
             alt="Aspas ciano clarinho"
           />
-          <p class="conteudo">{{ form.get('conteudo')?.value }}</p>
+          <p class="conteudo">{{ form.get("conteudo")?.value }}</p>
           <p class="autoria">
-            <b>{{ form.get('autoria')?.value }}</b>
+            <b>{{ form.get("autoria")?.value }}</b>
           </p>
         </div>
       </div>
     </div>
 
     <div class="acoes">
-      <button class="botao" (click)="criarPensamento()">
+      <button
+        class="botao"
+        [disabled]="!form.valid"
+        [ngClass]="habilitarBotao()"
+        (click)="criarPensamento()"
+      >
         Salvar
       </button>
-      <button class="botao" (click)="cancelar()">
-        Cancelar
-      </button>
+      <button class="botao" (click)="cancelar()">Cancelar</button>
     </div>
   </form>
 </section>
