@@ -1,19 +1,18 @@
 <section class="container editar-pensamentos ff-inter">
   <header class="header">
     <h2>
-      Adicione um <br />
-      pensamento novo
+      Edite seu pensamento
     </h2>
   </header>
   <form [formGroup]="form">
     <label for="pensamento">Pensamento</label>
     <input
-      type="textarea"
-      class="input"
       id="pensamento"
       formControlName="conteudo"
+      class="input"
+      type="textarea"
       placeholder="Digite o pensamento"
-    >
+    />
     <div
       class="mensagem__erro"
       *ngIf="form.get('conteudo')?.errors && form.get('conteudo')?.touched"
