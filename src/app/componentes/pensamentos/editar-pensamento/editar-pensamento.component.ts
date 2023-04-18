@@ -38,15 +38,14 @@ export class EditarPensamentoComponent implements OnInit {
           pensamento.autoria,
           Validators.compose([
             Validators.required,
-            lowercaseValidator,
             Validators.minLength(3),
+            lowercaseValidator,
             // Validators.pattern('^[a-z ]*$')
           ]),
         ],
         modelo: [pensamento.modelo],
+        favorito: [pensamento.favorito]
       });
-
-      console.log(`FormConteudo: ${this.form.get('id')?.value}; FormConteudo: ${this.form.get('conteudo')?.value}`);    
     });   
   };
 

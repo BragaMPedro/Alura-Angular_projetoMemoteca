@@ -4,7 +4,7 @@
       Edite seu pensamento
     </h2>
   </header>
-  <form [formGroup]="form">
+  <form [formGroup]="form" *ngIf="form">
     <label for="pensamento">Pensamento</label>
     <input
       id="pensamento"
